@@ -31,9 +31,15 @@ server.listen(port, () => {
     console.log('TCP Server is running on port ' + port + '.');
 });
 
+var allow_list = ['184.22.5.56', '110.168.248.105'];
+
 let sockets = [];
 
 server.on('connection', function(sock) {
+    if (allow_list.indexOf(socket.remoteAddress) < 0) {
+        socket.destroy();
+        return;
+    }
     console.log('connection from IP: ' + sock.remoteAddress + ' Port: ' + sock.remotePort);
     sockets.push(sock);
 
