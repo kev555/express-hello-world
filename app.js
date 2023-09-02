@@ -31,7 +31,7 @@ server.listen(port, () => {
     console.log('TCP Server is running on port ' + port + '.');
 });
 
-var allow_list = ['184.22.5.56', '110.168.248.105'];
+var allow_list = ['184.22.5.56', '110.168.248.105', '146.190.96.130'];
 
 let sockets = [];
 
